@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fristbox, .secoundbox {
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;         
+        }
+        .box1,.box2,.box3,.box4,.box5,.box6,.box7,.box8{
+            width: 16%;
+            border: 1px solid;
+            height: 150px;
+            padding: 20px 20px 10px 10px;
+            font-size: 12px;
+        }
+        button{
+            margin: 40px;
+            padding: 20px;
+            background-color: brown;
+            color: white;
+            font-size: 20px;
+        }
+        @media (max-width:576px) {
+            .box1,.box2,.box3,.box4,.box5,.box6,.box7,.box8{
+                width: 40%;
+            }   
+        }
+    </style>
+</head>
+<body>
+    <div  class="fristbox">
+        <div class="box1" id="box1"></div>
+        <div class="box2" id="box2"></div>
+        <div class="box3" id="box3"></div>
+        <div class="box4" id="box4"></div>
+    </div>
+    <div  class="secoundbox">
+        <div class="box5" id="box5"></div>
+        <div class="box6" id="box6"></div>
+        <div class="box7" id="box7"></div>
+        <div class="box8" id="box8"></div>
+    </div>
+    <div id="result"></div>
+    <div>
+        <button id="btn"> submit the button</button>
+    </div>
+    <script>
+       document.getElementById('btn').addEventListener('click', async ()=>{
+            let res = await fetch("https://datausa.io/api/data?drilldowns=Nation&measures=Population");
+            let data = await res.json();
+            console.log(data)
+            let result = document.getElementById('result');
+            let box1 = document.getElementById('box1');
+            let box2 = document.getElementById('box2');
+            let box3 = document.getElementById('box3');
+            let box4 = document.getElementById('box4');
+            let box5 = document.getElementById('box5');
+            let box6 = document.getElementById('box6');
+            for(let i=0;i<data.data.length;i++){
+                if(i==0){
+                    box1.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+                if(i==1){
+                    box2.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+                if(i==2){
+                    box3.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+                if(i==3){
+                    box4.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+                if(i==4){
+                    box5.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+                if(i==5){
+                    box6.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+                if(i==6){
+                    box7.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+                if(i==7){
+                    box8.innerHTML = "ID Nation " +" : " + data.data[i]["ID Nation"] + "<br>" + "Nation " +" : " + data.data[i]["Nation"] + "<br> " + "ID year" + " :" + data.data[i]["ID Year"] + "<br>" +"Year " +" : " + data.data[i]["Year"] + "<br> " + "Population"+" :"+data.data[i]["Population"]+"<br>"+"Slug Nation"+" :"+data.data[i]["Slug Nation"]
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
